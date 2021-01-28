@@ -21,7 +21,7 @@ class MyScene extends Phaser.Scene {
     
     preload() {
         // Load an image and call it 'logo'.
-        this.load.image( 'emblem', 'asset/emblem.jpg' );
+        this.load.image( 'emblem', 'asset/emblem.png' );
     }
     
     create() {
