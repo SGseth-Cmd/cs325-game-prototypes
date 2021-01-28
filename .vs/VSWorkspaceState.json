@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\template-minimal",
+    "\\Digital-game",
+    "\\Digital-game\\js",
+    "\\template-minimal-noclass\\js",
     "\\template-minimal\\js"
   ],
-  "SelectedNode": "\\template-minimal\\js\\main.js",
+  "SelectedNode": "\\index.html",
   "PreviewInSolutionExplorer": false
 }
