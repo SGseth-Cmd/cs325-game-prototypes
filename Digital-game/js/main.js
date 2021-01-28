@@ -21,12 +21,12 @@ class MyScene extends Phaser.Scene {
     
     preload() {
         // Load an image and call it 'logo'.
-        this.load.image( 'logo', 'assets/phaser.png' );
+        this.load.image( 'emblem', 'asset/emblem.jpg' );
     }
     
     create() {
         // Create a sprite at the center of the screen using the 'logo' image.
-        this.bouncy = this.physics.add.sprite( this.cameras.main.centerX, this.cameras.main.centerX, 'logo' );
+        this.bouncy = this.physics.add.sprite( this.cameras.main.centerX, this.cameras.main.centerX, 'emblem' );
         
         // Make it bounce off of the world bounds.
         this.bouncy.body.collideWorldBounds = true;
@@ -40,7 +40,7 @@ class MyScene extends Phaser.Scene {
         // Add some text using a CSS style.
         // Center it in X, and position its top 15 pixels from the top of the world.
         let style = { font: "25px Verdana", fill: "#9999ff", align: "center" };
-        let text = this.add.text( this.cameras.main.centerX, 15, "Build something amazing.", style );
+        let text = this.add.text( this.cameras.main.centerX, 15, "Hello World.", style );
         text.setOrigin( 0.5, 0.0 );
     }
     
