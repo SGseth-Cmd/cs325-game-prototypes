@@ -232,3 +232,12 @@ GameState.prototype.upInputIsActive = function () {
 
 var game = new Phaser.Game(848, 450, Phaser.AUTO, 'game');
 game.state.add('game', GameState, true);
+
+const game = new Phaser.Game({
+    type: Phaser.AUTO,
+    parent: 'game',
+    width: 800,
+    height: 600,
+    scene: MyScene,
+    physics: { default: 'arcade' },
+});
