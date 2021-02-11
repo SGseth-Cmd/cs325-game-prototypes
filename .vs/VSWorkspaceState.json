@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Digital-game"
+    "\\Digital-game",
+    "\\template-scenes",
+    "\\template-scenes\\js"
   ],
-  "SelectedNode": "\\Digital-game\\js",
+  "SelectedNode": "\\template-scenes\\js\\Game.js",
   "PreviewInSolutionExplorer": false
 }
