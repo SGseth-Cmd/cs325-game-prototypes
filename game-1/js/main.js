@@ -230,8 +230,8 @@ GameState.prototype.upInputIsActive = function () {
     return isActive;
 };
 
-var game = new Phaser.Game(848, 450, Phaser.AUTO, 'game');
-game.state.add('game', GameState, true);
+//var game = new Phaser.Game(848, 450, Phaser.AUTO, 'game');
+//game.state.add('game', GameState, true);
 
 const game = new Phaser.Game({
     type: Phaser.AUTO,
