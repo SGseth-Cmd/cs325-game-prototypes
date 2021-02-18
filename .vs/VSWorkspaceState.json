@@ -1,10 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Digital-game",
-    "\\template-scenes",
-    "\\template-scenes\\js"
+    "\\game-1",
+    "\\game-1\\assets",
+    "\\game-1\\js",
+    "\\game-2",
+    "\\game-2\\js"
   ],
-  "SelectedNode": "\\template-scenes\\js\\Game.js",
+  "SelectedNode": "\\game-1\\js\\main.js",
   "PreviewInSolutionExplorer": false
 }
