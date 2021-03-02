@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\game-2",
-    "\\game-2\\js"
+    "\\game-2\\js",
+    "\\game-4",
+    "\\game-4\\js"
   ],
-  "SelectedNode": "\\index.html",
+  "SelectedNode": "\\game-2\\js\\main.js",
   "PreviewInSolutionExplorer": false
 }
