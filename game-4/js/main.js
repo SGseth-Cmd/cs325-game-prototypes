@@ -41,6 +41,12 @@ var over;
 var timer;
 var timetext;
 var timeover = 0;
+var laser;
+var engine;
+//var thrust;
+var crash;
+var isplay = false;
+
 
 var game = new Phaser.Game(config);
 
@@ -50,6 +56,9 @@ function preload() {
     this.load.image('ground', 'assets/ground.png');
     this.load.image('explode', 'assets/explosion.png');
     this.load.image('rock', 'assets/asteroid1.png')
+    this.load.audio('laser', 'assets/laser1.wav');
+    this.load.audio('rocket', 'assets/rocket_launch.wav');
+    this.load.audio('bomb', 'assets/bomb.wav');
 }
 
 function create() {
@@ -70,6 +79,10 @@ function create() {
 
     this.physics.world.gravity.y = 60;
 
+    laser = this.sound.add('laser');
+    engine = this.sound.add('rocket');
+    engine.setRate(2.0);
+    engine.setLoop(true);
 
     sprite.setDamping(true);
     sprite.setDrag(0.75);
@@ -79,6 +92,7 @@ function create() {
         sprite.setX(400);
         sprite.setY(300);
         rocks.clear();
+        crash.play();
         lives = lives - 1;
     });
 
@@ -93,15 +107,16 @@ function create() {
 
 
     sprite.setCollideWorldBounds(true);
-
+    crash = this.sound.add('bomb');
     
 
-    this.physics.add.overlap(sprite, rocks, function (sprite, rock) {
+    this.physics.add.collider(sprite, rocks, function (sprite, rock) {
         sprite.setX(400);
         sprite.setY(300);
         rock.setActive(false);
         rock.setVisible(false);
         rocks.remove(rock);
+        crash.play();
         lives = lives - 1;
         text.setText([ 'Lives: '+ lives]);
     });
@@ -111,6 +126,7 @@ function create() {
         rock.setVisible(false);
         bullet.setActive(false);
         bullet.setVisible(false);
+        crash.play();
         rocks.remove(rock);
     });
 
@@ -119,13 +135,14 @@ function create() {
         rock.setVisible(false);
         rocks.remove(rock);
     });
-
+    
+    //var thrust;
+    //var music;
     
 }
 
 function update(time, delta) {
     this.lives = 5;
-    
     
     timetext.setText('Time: ' + parseInt(time/1000 - timeover));
 
@@ -139,32 +156,54 @@ function update(time, delta) {
             lastLaunched = time + 1000/scale;
             scale = scale + 4;
         }
-    }
-    
+    } 
     if (cursors.up.isDown) {
         sprite.setAccelerationY(-200);
+        if (isplay === false) {
+            engine.play();
+            isplay = true;
+        }
     }
     else {
+        if (isplay === true) {
+            engine.stop();
+            isplay = false;
+        }
         sprite.setAcceleration(0);
     }
 
     if (cursors.left.isDown) {
         //sprite.setAngularVelocity(-300);
-        sprite.setAccelerationX(-150);  
+        sprite.setAccelerationX(-150);
+        if (isplay === false) {
+            engine.play();
+            isplay = true;
+        }
     }
     else if (cursors.right.isDown) {
         //sprite.setAngularVelocity(300);
         sprite.setAccelerationX(150);
-    }                 
-    else if(cursors.down.isDown) {
-        sprite.setAccelerationY(100);
+        if (isplay === false) {
+            engine.play();
+            isplay = true;
+        }
     }
+    else if (cursors.down.isDown) {
+
+        sprite.setAccelerationY(100);
+        if (isplay === false) {
+            engine.play();
+            isplay = true;
+        }
+    }
+    
 
     if (cursors.space.isDown && time > lastFired) {
         bullets.fireBullet(sprite.x, sprite.y);
-
+        laser.play();
         lastFired = time + 50;
     }
+
 
     text.setText([ 'Lives: '+ lives]);
 
