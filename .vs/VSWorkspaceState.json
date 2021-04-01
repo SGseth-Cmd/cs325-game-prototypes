@@ -6,8 +6,11 @@
     "\\game-2",
     "\\game-2\\js",
     "\\game-4",
-    "\\game-4\\js"
+    "\\game-4\\js",
+    "\\game-sequence1",
+    "\\game-sequence1\\assets",
+    "\\game-sequence1\\js"
   ],
-  "SelectedNode": "\\index.html",
+  "SelectedNode": "\\game-sequence1\\index.html",
   "PreviewInSolutionExplorer": false
 }
