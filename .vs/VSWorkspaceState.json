@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\game-1",
     "\\game-1\\js",
     "\\game-2",
     "\\game-2\\js",
-    "\\game-4",
     "\\game-4\\js",
-    "\\game-sequence1",
+    "\\game-sequence1-iteration",
+    "\\game-sequence1-iteration\\assets",
+    "\\game-sequence1-iteration\\js",
     "\\game-sequence1\\assets",
     "\\game-sequence1\\js"
   ],
-  "SelectedNode": "\\game-sequence1\\index.html",
+  "SelectedNode": "\\game-sequence1-iteration\\index.html",
   "PreviewInSolutionExplorer": false
 }
