@@ -95,7 +95,7 @@ function create() {
     this.physics.add.collider(car1, bound, function (car1) {
       // car1.setVelocity(-velocity*5);
     });
-    this.physics.add.overlap(bound, car2);
+    this.physics.add.collider(bound, car2);
 
     cursors = this.input.keyboard.createCursorKeys();
     cursors2 = this.input.keyboard.addKeys({ 'up': Phaser.Input.Keyboard.KeyCodes.W, 'down': Phaser.Input.Keyboard.KeyCodes.S, 'left': Phaser.Input.Keyboard.KeyCodes.A, 'right': Phaser.Input.Keyboard.KeyCodes.D});
