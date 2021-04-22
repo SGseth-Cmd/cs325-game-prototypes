@@ -109,7 +109,7 @@ function create ()
     build = this.sound.add('build');
     
 
-    music.play();
+    //music.play();
 
     //timerEvent = this.time.delayedCall(200, movingPlatform.remove, [], this);
 
