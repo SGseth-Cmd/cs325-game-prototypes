@@ -11,7 +11,7 @@ import "./phaser.js";
 
 // The simplest class example: https://phaser.io/examples/v3/view/scenes/scene-from-es6-class
 
-    var config = {
+var config = {
     type: Phaser.AUTO,
     width: 800,
     height: 600,
@@ -47,8 +47,7 @@ var bullets;
 
 var game = new Phaser.Game(config);
 
-function preload ()
-{
+function preload() {
     this.load.image('sky', 'assets/sky.png');
     this.load.image('ground', 'assets/platform.png');
     this.load.image('block', 'assets/block.png');
@@ -59,8 +58,7 @@ function preload ()
     this.load.image('bullet', 'assets/bullets.png');
 }
 
-function create ()
-{
+function create() {
     this.add.image(400, 300, 'sky');
 
     platforms = this.physics.add.staticGroup();
@@ -89,7 +87,7 @@ function create ()
 
     this.anims.create({
         key: 'turn',
-        frames: [ { key: 'dude', frame: 4 } ],
+        frames: [{ key: 'dude', frame: 4 }],
         frameRate: 20
     });
 
@@ -116,17 +114,16 @@ function create ()
     var music = this.sound.add('theme');
     jump = this.sound.add('jump');
     build = this.sound.add('build');
-    
+
 
     //music.play();
 
     //timerEvent = this.time.delayedCall(200, movingPlatform.remove, [], this);
 
-  
+
 }
 
-function update(time, delta)
-{
+function update(time, delta) {
     console.log(lives);
 
     if (lastfire < time) {
@@ -139,41 +136,37 @@ function update(time, delta)
         lastfire = time + 1000;
     }
 
-    if (cursors.left.isDown)
-    {
+    if (cursors.left.isDown) {
         player.setVelocityX(-160);
 
         player.anims.play('left', true);
     }
-    else if (cursors.right.isDown)
-    {
+    else if (cursors.right.isDown) {
         player.setVelocityX(160);
 
         player.anims.play('right', true);
     }
-    else
-    {
+    else {
         player.setVelocityX(0);
 
         player.anims.play('turn');
     }
-    
-    const isJumpJustDown = Phaser.Input.Keyboard.JustDown(cursors.up); 
+
+    const isJumpJustDown = Phaser.Input.Keyboard.JustDown(cursors.up);
     const isSpaceJustDown = Phaser.Input.Keyboard.JustDown(cursors.space);
     const touchingground = player.body.touching.down;
 
-    if (isJumpJustDown && touchingground)
-    {
+    if (isJumpJustDown && touchingground) {
         player.setVelocityY(-300);
         jump.play();
         ++this.jumpcount;
 
     }
     if (isSpaceJustDown && !touchingground) {
-        movingPlatform.set(player.x,player.y+50, time);
-        build.play();    
-    } 
-    if(touchingground){
+        movingPlatform.set(player.x, player.y + 50, time);
+        build.play();
+    }
+    if (touchingground) {
         this.jumpcount = 0;
     }
 
@@ -182,15 +175,15 @@ function update(time, delta)
     }
 
     //if(cursors.up.isdown && (!touchingground)){
-     //   var b = rocks.create(Phaser.Math.Between(player.x,player.y - 20), 2, 'platform');
-     //       b.setScale(0.25);
-     //       b.setImmovable(true);
-     //       this.physics.add.existing(b);
-            
-   // } 
+    //   var b = rocks.create(Phaser.Math.Between(player.x,player.y - 20), 2, 'platform');
+    //       b.setScale(0.25);
+    //       b.setImmovable(true);
+    //       this.physics.add.existing(b);
 
-    
-   
+    // } 
+
+
+
 }
 
 function Reducelife() {
